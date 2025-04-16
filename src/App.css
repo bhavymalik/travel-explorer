@@ -1,38 +1,289 @@
-.App {
+/* App.css */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #333;
+  color: #fff;
   text-align: center;
+  padding: 20px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1 {
+  font-size: 2.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  position: relative;
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+}
+
+.overlay h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #717171;
+}
+
+/* Articles (Home Page) */
+.articles {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
+  gap: 40px;
+}
+
+.article-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.article {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  height: 300px;          /* Fixed height for uniformity */
+  overflow: hidden;       /* Hide overflow to keep layout neat */
 }
 
-.App-link {
-  color: #61dafb;
+.article.reverse {
+  flex-direction: row-reverse;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.article img {
+  width: 45%;
+  height: 100%;           /* Ensures the image fills container height */
+  border-radius: 5px;
+  object-fit: cover;      /* Crops the image nicely without distortion */
+}
+
+.article .text {
+  width: 55%;
+  height: 100%;           /* Fixed height to match container */
+  overflow-y: auto;       /* Enable scrolling if text overflows */
+}
+
+.article .text h2 {
+  margin-bottom: 10px;
+  font-size: 1.8em;
+}
+
+.article .text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Single Article Page */
+.article-page {
+  /* A wrapper if you want to ensure everything aligns left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-align content */
+}
+
+/* Home link aligned left */
+.home-link {
+  margin: 20px;           /* Top, right, bottom, left spacing */
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Container for the single article layout */
+.article-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;       /* Left-align the text within the container */
+}
+
+.article-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.article-content {
+  margin-top: 20px;
+}
+
+.article-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.article-content p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
   }
-  to {
-    transform: rotate(360deg);
+  .slide img {
+    height: 300px;
+  }
+  .overlay h2 {
+    font-size: 1.6em;
+  }
+  .overlay p {
+    font-size: 1em;
+  }
+  .article {
+    flex-direction: column;
+    height: auto;         /* Remove fixed height for smaller screens */
+  }
+  .article img,
+  .article .text {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide img {
+    height: 250px;
+  }
+  .overlay {
+    padding: 15px;
+  }
+  .overlay h2 {
+    font-size: 1.4em;
+  }
+  .overlay p {
+    font-size: 0.9em;
+  }
+  .articles {
+    padding: 0 10px;
+  }
+  .article {
+    padding: 15px;
+    gap: 15px;
+  }
+  .article .text h2 {
+    font-size: 1.6em;
+  }
+  .article .text p {
+    font-size: 1em;
   }
 }

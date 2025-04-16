@@ -2,7 +2,7 @@
 export const articlesData = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmRRuwya7lxUCtFRKafqL8oKi79JD2ve2GPQ&s',
       alt: 'Mountain Escapes',
       title: 'Mountain Escapes',
       excerpt: 'Find solace in rugged landscapes and refreshing mountain air, where adventure meets tranquility.',
